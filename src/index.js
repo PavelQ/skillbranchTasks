@@ -3,6 +3,7 @@ import cors from 'cors'
 
 import fioFinder from './task3/fioFinder'
 import summerAB from './task2/summerAB'
+import username from './task2c/username'
 
 var app = express();
 app.use(cors());
@@ -19,6 +20,12 @@ app.get('/task2b', function (req, resp) {
 app.get('/task2a', function (req, resp) {
   const params = req.query;
   let result = summerAB.doWork(params);
+  resp.send(result);
+});
+
+app.get('/task2c', function (req, resp) {
+  const params = req.query;
+  let result = username.doWork(params);
   resp.send(result);
 });
 
